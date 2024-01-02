@@ -2,7 +2,7 @@
   <v-navigation-drawer v-model="drawer" color="#2B2B2B" class="">
     <div color="" class="pa-4">
       <v-img
-        src="p1.webp"
+        src="/p1.webp"
         alt="food"
         width="150"
         height="150"
@@ -11,25 +11,20 @@
     </div>
     <v-card class="rounded-e-xl me" width="60" height="400" color="#545454">
     </v-card>
-    <v-list class="top">
-      <v-list-item
-        v-for="(item, i) in links"
-        :key="i"
-        :value="item"
-        class="mb-5"
-        color="#FF6259"
-        variant="plain"
-      >
-        <!-- check slots -->
-        <template v-slot:append="{ isActive }">
-          <div v-if="isActive" class="a"></div>
-        </template>
+    <v-list class="top" base-color="white">
+      <router-link v-for="(item, i) in links" :key="i" :to="item.name">
+        <v-list-item :value="item" class="mb-5" color="#FF6259" variant="plain">
+          <!-- check slots -->
+          <template v-slot:append="{ isActive }">
+            <div v-if="isActive" class="a"></div>
+          </template>
 
-        <template v-slot:prepend>
-          <v-icon :icon="item.icon"></v-icon>
-        </template>
-        <v-list-item-title v-text="item.text"></v-list-item-title>
-      </v-list-item>
+          <template v-slot:prepend>
+            <v-icon :icon="item.icon"></v-icon>
+          </template>
+          <v-list-item-title v-text="item.text"></v-list-item-title>
+        </v-list-item>
+      </router-link>
     </v-list>
     <v-div
       style="
@@ -58,11 +53,15 @@
 <script setup>
 import { ref } from "vue";
 const links = [
-  { text: "Dashboard", icon: "mdi mdi-view-dashboard" },
-  { text: "Orders", icon: "mdi mdi-phone-classic" },
-  { text: "Restaurants", icon: "mdi mdi-map-marker-radius" },
-  { text: "Finance", icon: "mdi mdi-finance" },
-  { text: "Logout", icon: "mdi mdi-logout" },
+  { text: "Dashboard", icon: "mdi mdi-view-dashboard", name: "/" },
+  { text: "Orders", icon: "mdi mdi-phone-classic", name: "/orders" },
+  {
+    text: "Restaurants",
+    icon: "mdi mdi-map-marker-radius",
+    name: "/restaurants",
+  },
+  { text: "Finance", icon: "mdi mdi-finance", name: "/finance" },
+  { text: "Logout", icon: "mdi mdi-logout", name: "/logout" },
 ];
 
 const drawer = ref(null);

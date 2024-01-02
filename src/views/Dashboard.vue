@@ -3,7 +3,7 @@
     id="inspire"
     :style="{ background: $vuetify.theme.themes.light.colors.primary }"
   >
-    <SideBare />
+    <SideBar />
     <v-main>
       <v-container>
         <v-row>
@@ -11,9 +11,9 @@
             <!-- serach-field -->
             <SearchBox />
             <!-- categoryToolbar -->
-            <CategorySlider :foods="foods" />
+            <CategorySlider />
             <!-- popular dishes -->
-            <PopularDishes :dishes="dishes" />
+            <PopularDishes />
             <!-- order reports -->
             <OrderReports />
           </v-col>
@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-import SideBare from "@/components/SideBar.vue";
+import SideBar from "@/components/SideBar.vue";
 const foods = [
   { image: "2.png" },
   { image: "3.png" },
@@ -36,12 +36,6 @@ const foods = [
   { image: "6.png" },
   { image: "7.png" },
   { image: "8.png" },
-];
-const dishes = [
-  { image: "11.png", name: "Hamburger", money: "$10.00", star: "4.5" },
-  { image: "22.png", name: "Pizza", money: "$25.00", star: "4.1" },
-  { image: "33.png", name: "Sushi", money: "$15.00", star: "4.3" },
-  { image: "44.png", name: "Gratin", money: "$23.00", star: "4.9" },
 ];
 </script>
 <script>
