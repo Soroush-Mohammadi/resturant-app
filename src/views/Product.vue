@@ -1,46 +1,36 @@
 <template>
   <v-main>
-    <v-container>
-      <v-row>
-        <v-col>
-          <v-card>
-            <v-row align="center" justify="center">
-              <v-col cols="6">
-                <v-img :src="`/${product.img}`" max-height="300"></v-img>
-              </v-col>
-              <v-col cols="6">
-                <v-card-item>
-                  <v-card-title>
-                    {{ product.name }}
-                  </v-card-title>
-                  <v-card-subtitle>
-                    {{ product.description }}
-                  </v-card-subtitle>
-                </v-card-item>
-                <v-card-text>
-                  <v-toolbar density="compact" rounded>
-                    <v-toolbar-title>
-                      <h5>ingridents</h5>
-                    </v-toolbar-title>
-                  </v-toolbar>
-                  <v-list class="d-flex">
-                    <v-row>
-                      <v-list-item
-                        v-for="ing in product.ingredients"
-                        :key="ing"
-                      >
-                        <v-col>
-                          <v-chip>
-                            {{ ing }}
-                          </v-chip>
-                        </v-col>
-                      </v-list-item>
-                    </v-row>
-                  </v-list>
-                </v-card-text>
-              </v-col>
-            </v-row>
-          </v-card>
+    <v-container class="container">
+      <v-row align="start" justify="center" class="bg-white">
+        <v-col cols="8" lg="5">
+          <v-sheet>
+            <v-img :src="`/${product.img}`" max-height="300"></v-img>
+          </v-sheet>
+        </v-col>
+        <v-col cols="8" lg="5">
+          <v-sheet>
+            <div class="sheet-header">
+              <v-toolbar density="compact">
+                <h4 class="ml-2">Product Title :</h4>
+              </v-toolbar>
+              <h2 class="mt-2 ml-2">
+                {{ product.name }}
+              </h2>
+            </div>
+            <div class="sheet-body ml-2">
+              {{ product.description }}
+              <v-toolbar density="compact" class="mt-4">
+                <h3 class="my-2 ml-2">Ingridents :</h3>
+              </v-toolbar>
+              <v-chip
+                v-for="item in product.ingredients"
+                :key="item"
+                class="my-2"
+              >
+                {{ item }}
+              </v-chip>
+            </div>
+          </v-sheet>
         </v-col>
       </v-row>
     </v-container>
@@ -69,4 +59,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+</style>

@@ -1,29 +1,23 @@
 <template>
-  <v-app
-    id="inspire"
-    :style="{ background: $vuetify.theme.themes.light.colors.primary }"
-  >
-    <SideBar />
-    <v-main>
-      <v-container>
-        <v-row>
-          <v-col cols="12" sm="8">
-            <!-- serach-field -->
-            <SearchBox />
-            <!-- categoryToolbar -->
-            <CategorySlider />
-            <!-- popular dishes -->
-            <PopularDishes />
-            <!-- order reports -->
-            <OrderReports />
-          </v-col>
-          <v-col cols="12" sm="4">
-            <DeliveryDetails />
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-main>
-  </v-app>
+  <v-main>
+    <v-container>
+      <v-row>
+        <v-col cols="12" md="8">
+          <!-- serach-field -->
+          <SearchBox />
+          <!-- categoryToolbar -->
+          <CategorySlider />
+          <!-- popular dishes -->
+          <PopularDishes />
+          <!-- order reports -->
+          <OrderReports />
+        </v-col>
+        <v-col cols="12" md="4">
+          <DeliveryDetails />
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-main>
 </template>
 
 <script setup>

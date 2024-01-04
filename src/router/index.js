@@ -1,5 +1,6 @@
 // Composables
 import { createRouter, createWebHistory } from "vue-router";
+import { useAuthStore } from "@/store/auth";
 
 const routes = [
   {
@@ -58,3 +59,13 @@ const router = createRouter({
 });
 
 export default router;
+
+router.beforeEach(async (to, from) => {
+  const store = await useAuthStore();
+  if (!store.isAuthenticated && to.name !== "login") {
+    return {
+      name: "login",
+      query: { redirect: to.fullPath },
+    };
+  }
+});
