@@ -5,7 +5,7 @@
   >
     <SideBar />
     <v-app-bar color="black" class="app-bar">
-      <div>
+      <div v-if="user.email">
         <v-btn icon>
           <v-icon> mdi-account </v-icon>
         </v-btn>
